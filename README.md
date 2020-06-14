@@ -81,24 +81,26 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ```
 #clone the skeleton from the repository
 git clone <url> ./
-cd zend-api-skeleton
+cd Laravel-Example
 
 #copy .env.example as .env and configure the project with the correct credentials and parameters 
 cp .env.example .env
 
-#build the image
-docker-compose -f docker-compose.dev.yml build
+#install venndor folder
+composer install
 
-#start all service containers (demonized)
-docker-compose -f docker-compose.dev.yml up -d
+#Install the dependencies
+npm install
 
-#stop all service containers
-docker-compose -f docker-compose.dev.yml stop
+#run migrations
+php artisan migrate
 
-#restart all service containers
-docker-compose -f docker-compose.dev.yml restart
+#create admin account with seeder
+php artisan db:seed
+
+#start server
+php artisan serve
 ```
-On dev environment DB_HOST and DB_PORT must be left blank. DB_USER need to be something different than "root". DB_VOLUME_PATH should be writeble by the host user
 
 ## License
 
