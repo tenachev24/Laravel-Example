@@ -76,6 +76,30 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
+## Installing
+
+```
+#clone the skeleton from the repository
+git clone <url> ./
+cd zend-api-skeleton
+
+#copy .env.example as .env and configure the project with the correct credentials and parameters 
+cp .env.example .env
+
+#build the image
+docker-compose -f docker-compose.dev.yml build
+
+#start all service containers (demonized)
+docker-compose -f docker-compose.dev.yml up -d
+
+#stop all service containers
+docker-compose -f docker-compose.dev.yml stop
+
+#restart all service containers
+docker-compose -f docker-compose.dev.yml restart
+```
+On dev environment DB_HOST and DB_PORT must be left blank. DB_USER need to be something different than "root". DB_VOLUME_PATH should be writeble by the host user
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
